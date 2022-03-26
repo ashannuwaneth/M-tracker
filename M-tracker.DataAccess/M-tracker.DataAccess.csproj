@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\M-tracker.Models\M-tracker.Models.csproj" />
+    <ProjectReference Include="..\M-tracker.Utility\M-tracker.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
