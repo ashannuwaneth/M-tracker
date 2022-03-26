@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\M-tracker.DataAccess\M-tracker.DataAccess.csproj" />
+    <ProjectReference Include="..\M-tracker.Models\M-tracker.Models.csproj" />
+    <ProjectReference Include="..\M-tracker.Utility\M-tracker.Utility.csproj" />
+  </ItemGroup>
+
 </Project>

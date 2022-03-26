@@ -313,6 +313,40 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "M-tracker.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "M-tracker.Models": "1.0.0",
+          "M-tracker.Utility": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/M-tracker.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/M-tracker.DataAccess.dll": {}
+        }
+      },
+      "M-tracker.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/M-tracker.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/M-tracker.Models.dll": {}
+        }
+      },
+      "M-tracker.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/M-tracker.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/M-tracker.Utility.dll": {}
+        }
       }
     }
   },
@@ -893,10 +927,28 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "M-tracker.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../M-tracker.DataAccess/M-tracker.DataAccess.csproj",
+      "msbuildProject": "../M-tracker.DataAccess/M-tracker.DataAccess.csproj"
+    },
+    "M-tracker.Models/1.0.0": {
+      "type": "project",
+      "path": "../M-tracker.Models/M-tracker.Models.csproj",
+      "msbuildProject": "../M-tracker.Models/M-tracker.Models.csproj"
+    },
+    "M-tracker.Utility/1.0.0": {
+      "type": "project",
+      "path": "../M-tracker.Utility/M-tracker.Utility.csproj",
+      "msbuildProject": "../M-tracker.Utility/M-tracker.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "M-tracker.DataAccess >= 1.0.0",
+      "M-tracker.Models >= 1.0.0",
+      "M-tracker.Utility >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.3"
     ]
   },
@@ -926,7 +978,17 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.DataAccess\\M-tracker.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.DataAccess\\M-tracker.DataAccess.csproj"
+            },
+            "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.Models\\M-tracker.Models.csproj": {
+              "projectPath": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.Models\\M-tracker.Models.csproj"
+            },
+            "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.Utility\\M-tracker.Utility.csproj": {
+              "projectPath": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker.Utility\\M-tracker.Utility.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
