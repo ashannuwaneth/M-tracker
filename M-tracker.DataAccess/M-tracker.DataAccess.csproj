@@ -21,4 +21,9 @@
     <ProjectReference Include="..\M-tracker.Utility\M-tracker.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>
