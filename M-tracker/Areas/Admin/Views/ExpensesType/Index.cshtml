@@ -1,0 +1,31 @@
+﻿<div class="container" style="margin-top:5%">
+    <div class="row">
+        <div class="col-6" style="float:none;margin:auto;">
+            <h2>Manage Expenses Types</h2>
+        </div>
+        <div class="row">
+            <div class="col-12 text-end">
+                <a asp-controller="Company" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> &nbsp; Create Type
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:5%">
+        <table id="tblTypes" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr style="color:black">
+                    <th>Type</th>
+                    <th>Created Date</th>
+                    <th>Icon</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+<script src="~/js/ExpensesTypes.js"></script>
+}
