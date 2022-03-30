@@ -24,4 +24,8 @@
     <ProjectReference Include="..\M-tracker.Utility\M-tracker.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\ExpensesTypes\" />
+  </ItemGroup>
+
 </Project>

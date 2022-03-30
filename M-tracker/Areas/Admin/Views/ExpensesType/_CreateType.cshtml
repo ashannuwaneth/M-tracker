@@ -1,0 +1,48 @@
+﻿@model ExpensesType
+
+@{
+    Layout = null;
+}
+
+<form method="post" asp-action="CreateUpdateType" asp-controller="ExpensesType" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <input asp-for="Id" hidden />
+            <input asp-for="ImageUrl" hidden />
+            <div class="mb-3">
+                <label asp-for="Type"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ImageUrl"></label>
+                <input type="file" asp-for="ImageUrl" name="file" id="uploadBox" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                @if (Model.Id == 0)
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                }
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+@section Scripts
+{
+<script>
+
+</script>
+
+}

@@ -10,10 +10,10 @@ namespace M_tracker.Models
 {
     public class ExpensesType
     {
-        [Key]
         public int Id { get; set; }
         [Required]
         public string Type { get; set; }
+        [ValidateNever]
         public DateTime CreatedDate { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
