@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace M_tracker.DataAccess.Data
 {
-    public class ApplicationDataContext : DbContext
+    public class ApplicationDataContext : IdentityDbContext
     {
         public ApplicationDataContext(DbContextOptions<ApplicationDataContext> options) : base(options)
         {
         }
 
         public DbSet<ExpensesType> ExpensesTypes { get; set; }
+
+        public DbSet<GroupType> GroupTypes { get; set; }
     }
 }

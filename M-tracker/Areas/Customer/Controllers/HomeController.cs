@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace M_tracker.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

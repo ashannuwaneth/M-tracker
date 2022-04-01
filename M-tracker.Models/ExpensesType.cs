@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,5 +18,8 @@ namespace M_tracker.Models
         public DateTime CreatedDate { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
+
+
+
     }
 }

@@ -1,0 +1,38 @@
+﻿@model GroupType
+
+@{
+    Layout = null;
+}
+
+<form method="post" asp-action="CreateUpdateGroup" asp-controller="GroupType">
+    <div class="container">
+        <div class="row">
+            <input asp-for="Id" hidden />
+            <div class="mb-3">
+                <label asp-for="Type"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+                          <div class="mb-3">
+            <label asp-for="Description"></label>
+   <textarea asp-for="Description" rows="3" class="form-control"></textarea>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                @if (Model.Id == 0)
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}

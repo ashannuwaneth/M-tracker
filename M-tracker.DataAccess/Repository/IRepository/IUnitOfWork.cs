@@ -9,6 +9,8 @@ namespace M_tracker.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         IExpensesTypeRepository ExpensesType { get; }
+
+        IGroupTypeRepository GroupType { get; }
         void Save();
     }
 }

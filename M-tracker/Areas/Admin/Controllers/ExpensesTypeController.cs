@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace M_tracker.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ExpensesTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
