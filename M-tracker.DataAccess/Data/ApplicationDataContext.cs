@@ -18,5 +18,8 @@ namespace M_tracker.DataAccess.Data
         public DbSet<ExpensesType> ExpensesTypes { get; set; }
 
         public DbSet<GroupType> GroupTypes { get; set; }
+        public DbSet<GroupUser> GroupUsers { get; set; }
+        public DbSet<GroupTypeUser> GroupTypeUsers { get; set; }
+        public IEnumerable<object> IdentityUser { get; internal set; }
     }
 }

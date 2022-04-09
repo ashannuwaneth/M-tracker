@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace M_tracker.DataAccess.Migrations
 {
-    public partial class add_table_to_DB : Migration
+    public partial class Add_table_db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,21 @@ namespace M_tracker.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ExpensesTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroupUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,7 +191,7 @@ namespace M_tracker.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IdentityUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
@@ -188,6 +203,32 @@ namespace M_tracker.DataAccess.Migrations
                         column: x => x.IdentityUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroupTypeUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    GroupId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupTypeUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupTypeUsers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupTypeUsers_GroupUsers_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "GroupUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -233,6 +274,16 @@ namespace M_tracker.DataAccess.Migrations
                 name: "IX_GroupTypes_IdentityUserId",
                 table: "GroupTypes",
                 column: "IdentityUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupTypeUsers_GroupId",
+                table: "GroupTypeUsers",
+                column: "GroupId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupTypeUsers_UserId",
+                table: "GroupTypeUsers",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -259,10 +310,16 @@ namespace M_tracker.DataAccess.Migrations
                 name: "GroupTypes");
 
             migrationBuilder.DropTable(
+                name: "GroupTypeUsers");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "GroupUsers");
         }
     }
 }

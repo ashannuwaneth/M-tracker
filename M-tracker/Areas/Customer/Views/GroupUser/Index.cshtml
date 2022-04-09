@@ -1,0 +1,68 @@
+﻿@using M_tracker.Models.ViewModels
+@model GroupUserVM
+
+<div class="container" style="margin-top:5%">
+    <div class="row">
+        <div class="col-6" style="float:none;margin:auto"><h2>Manage Group Users</h2></div>
+    </div>
+     
+    <form method="post" asp-action="InsertUpdateUser" asp-controller="GroupUser">
+    <div class="row" style="margin-top:4%">
+         <input asp-for="GroupUser.Id" hidden />
+        <div class="col-3">
+            <label></label>
+            <div class="input-group custom-search-input">
+            <input id="txtSearch" type="text" class="form-control" placeholder="Search By UserName" />
+            <input asp-for="GroupTypeUser.UserId" type="text" id="txtSearchid"  hidden/>
+            </div>
+        </div>
+        <div class="col-3">
+            <label asp-for="GroupUser.IsActive"></label>
+            <select asp-for="GroupUser.IsActive" class="form-select">
+                <option disabled selected>-- SELECT --</option>
+                 <option value="True">YES</option>
+                  <option value="False">NO</option>
+            </select>
+
+            <span asp-validation-for="GroupUser.IsActive" class="text-danger"></span>
+        </div>
+                <div class="col-3">
+                    <label asp-for="GroupUser.IsAdmin"></label>
+            <select asp-for="GroupUser.IsAdmin" class="form-select">
+                <option disabled selected>-- SELECT --</option>
+                 <option value="True">YES</option>
+                  <option value="False">NO</option>
+            </select>
+            <span asp-validation-for="GroupUser.IsAdmin" class="text-danger"></span>
+        </div>
+        <div class="col-3" style="margin-top:2%">
+           
+                <div class="col-3">
+             
+                    <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+          
+                    
+                
+            </div>
+
+        </div>
+    </div>
+    </form>
+    <div class="row" style="margin-top:5%">
+        <table id="tblGroupUser" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Active</th>
+                    <th>Admin</th>
+                   <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+
+@section scripts{<script src="~/js/GroupTypeUsers.js"></script>}

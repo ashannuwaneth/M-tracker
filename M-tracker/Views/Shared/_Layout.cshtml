@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
 </head>
 <body>
     <header>
@@ -31,8 +33,13 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Admin" asp-controller="ExpensesType" asp-action="Index">Expenses</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Customer" asp-controller="GroupType" asp-action="Index">Group Types</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Expenses Managment</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="GroupType" asp-action="Index">Group Types</a>
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="GroupUser" asp-action="Index">Group Users</a>
+                            </div>
+
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -52,14 +59,17 @@
             &copy; 2022 - M-Tracker Web
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+@*    <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="//cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/uzwnzajsyw4j1ttid58vxrtzevpxqqve2to51a6gux7j0b2o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+       
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,42 @@
+﻿@using M_tracker.Models.ViewModels
+@model GroupUserVM
+
+
+<form method="post" asp-action="AddUpdateUser" asp-controller="GroupUser">
+    <div class="container">
+
+        <div class="row">
+
+    <div class="col-8">
+        <div class="input-group custom-search-input">
+            <input id="txtSearch" type="text" class="form-control" placeholder="Search By Keyword" />
+        </div>
+    </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label asp-for="GroupUser.IsActive"></label>
+                <select class="form-select">
+                    <option disabled selected>--Select--</option>
+                    <option>YES</option>
+                    <option>NO</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label asp-for="GroupUser.IsAdmin"></label>
+                <select class="form-select">
+                    <option disabled selected>--Select--</option>
+                    <option>YES</option>
+                    <option>NO</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@{     await Html.RenderPartialAsync("_ScriptPartial"); }
+
+
+

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fQsignktUS3XibUdfbH0nta3z36+ql4YfEPQvROrYcs=",
+  "Hash": "sgKt2Zo+tP9HpmEQQ0esjpSEJSq90kgQZlI4DGk0AUU=",
   "Source": "M-tracker",
   "BasePath": "_content/M-tracker",
   "Mode": "Default",
@@ -1392,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\GroupTypes.js"
+    },
+    {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\GroupTypeUsers.js",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "js/GroupTypeUsers.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\GroupTypeUsers.js"
     },
     {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\site.js",
