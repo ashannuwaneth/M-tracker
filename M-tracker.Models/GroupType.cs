@@ -22,7 +22,9 @@ namespace M_tracker.Models
         public string? Description { get; set; }
         [ValidateNever]
         public DateTime CreatedDate { get; set; }
-
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        [ValidateNever]
         public virtual IdentityUser IdentityUser { get; set; }
 
 

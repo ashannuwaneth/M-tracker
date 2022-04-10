@@ -13,11 +13,10 @@ namespace M_tracker.DataAccess.Repository
     public class GroupUserRepository : Repository<GroupUser>, IGroupUserRepository
     {
         private readonly ApplicationDataContext _db;
-        
+
         public GroupUserRepository(ApplicationDataContext db) : base(db)
         {
             _db = db;
-     
 
         }
 
@@ -35,15 +34,24 @@ namespace M_tracker.DataAccess.Repository
             return users.ToArray();
         }
 
+        public string GetUserName(string Id)
+        {
+            var users =_db.Users.Where(u => u.Id.Contains(Id)).FirstOrDefault().UserName;
+            return users.ToString();  
+        }
+
+
         public Array ListAllUsers()
         {
             var UserLst = (from gu in _db.GroupTypeUsers
                            join u in _db.Users on gu.UserId equals u.Id
                            join gl in _db.GroupUsers on gu.GroupId equals gl.Id
+                           join gt in _db.GroupTypes on gu.GroupTypeId equals gt.Id
                            select new
                            {
                                Id = gu.Id,
                                GroupName = u.UserName,
+                               TypeName = gt.Type,
                                IsActive= gl.IsActive == true ? "Yes":"No",
                                IsAdmin= gl.IsAdmin == true ? "Yes":"No"
                            }).ToArray();

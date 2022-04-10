@@ -1,6 +1,7 @@
 ﻿using M_tracker.DataAccess.Repository.IRepository;
 using M_tracker.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace M_tracker.Areas.Customer.Controllers
 {
@@ -58,7 +59,10 @@ namespace M_tracker.Areas.Customer.Controllers
             }
             else
             {
-                obj.IdentityUser = null;
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+                obj.UserId = Convert.ToString(claim.Value);
                 _unitOfWork.GroupType.Add(obj);
             }
             _unitOfWork.Save();

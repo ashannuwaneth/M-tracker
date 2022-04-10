@@ -9,6 +9,7 @@ namespace M_tracker.Models
 {
     public class GroupUser
     {
+        [Key]
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         [Display(Name ="Is Active")]

@@ -14,5 +14,11 @@ namespace M_tracker.Models.ViewModels
 
         public GroupTypeUser GroupTypeUser {get;set;}
 
+        public IEnumerable<SelectListItem> GroupTypeList { get; set; }
+
+        public IEnumerable<SelectListItem> Users { get; set; }
+
+        public string UserIdGet { get; set; }
+
     }
 }

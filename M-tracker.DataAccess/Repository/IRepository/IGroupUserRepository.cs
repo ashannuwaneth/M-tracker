@@ -11,7 +11,7 @@ namespace M_tracker.DataAccess.Repository.IRepository
     public interface IGroupUserRepository  : IRepository<GroupUser>
     {
         Array GetAll(string txt);
-
+        string GetUserName(string Id);
         Array ListAllUsers();
         void Update(GroupUser obj);
     }
