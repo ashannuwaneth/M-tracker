@@ -23,6 +23,7 @@ namespace M_tracker.Models
         [ValidateNever]
         public  GroupUser GroupUser { get; set; }
         [Required]
+        [Display(Name ="Group Type")]
         public int? GroupTypeId { get; set; }
         [ForeignKey("GroupTypeId")]
         [ValidateNever]
