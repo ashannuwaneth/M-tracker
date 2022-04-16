@@ -47,7 +47,8 @@ namespace M_tracker.Areas.Customer.Controllers
          [ValidateAntiForgeryToken]
          public IActionResult CreateUpdateGroup(GroupType obj)
         {
-
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
             obj.CreatedDate = DateTime.Now;
             if (obj.Description == null)
             {
@@ -55,12 +56,12 @@ namespace M_tracker.Areas.Customer.Controllers
             }
             if ( obj.Id !=0)
             {
+                obj.UserId = Convert.ToString(claim.Value);
                 _unitOfWork.GroupType.Update(obj);
             }
             else
             {
-                var claimsIdentity = (ClaimsIdentity)User.Identity;
-                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
 
                 obj.UserId = Convert.ToString(claim.Value);
                 _unitOfWork.GroupType.Add(obj);

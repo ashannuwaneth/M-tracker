@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace M_tracker.DataAccess.Migrations
 {
-    public partial class Update_groupType_DB : Migration
+    public partial class new_table : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -207,6 +207,41 @@ namespace M_tracker.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GroupExpensesManages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amount = table.Column<double>(type: "float", nullable: false),
+                    DateRange = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GroupTypeId = table.Column<int>(type: "int", nullable: false),
+                    ExpensesTypeId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupExpensesManages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupExpensesManages_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_GroupExpensesManages_ExpensesTypes_ExpensesTypeId",
+                        column: x => x.ExpensesTypeId,
+                        principalTable: "ExpensesTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GroupExpensesManages_GroupTypes_GroupTypeId",
+                        column: x => x.GroupTypeId,
+                        principalTable: "GroupTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GroupTypeUsers",
                 columns: table => new
                 {
@@ -277,6 +312,21 @@ namespace M_tracker.DataAccess.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GroupExpensesManages_ExpensesTypeId",
+                table: "GroupExpensesManages",
+                column: "ExpensesTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupExpensesManages_GroupTypeId",
+                table: "GroupExpensesManages",
+                column: "GroupTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupExpensesManages_UserId",
+                table: "GroupExpensesManages",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GroupTypes_UserId",
                 table: "GroupTypes",
                 column: "UserId");
@@ -315,13 +365,16 @@ namespace M_tracker.DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ExpensesTypes");
+                name: "GroupExpensesManages");
 
             migrationBuilder.DropTable(
                 name: "GroupTypeUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "ExpensesTypes");
 
             migrationBuilder.DropTable(
                 name: "GroupTypes");

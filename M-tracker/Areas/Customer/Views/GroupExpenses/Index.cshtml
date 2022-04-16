@@ -1,8 +1,97 @@
-﻿
+﻿@using M_tracker.Models.ViewModels
+@model GroupExpensesVM
 
 
 <div class="container">
     <div class="row" style="margin-top:5%">
         <div class="col-6" style="float:none;margin:auto"><h2>Group Expenses Manage </h2></div>
     </div>
+    <div class="row">
+  <div class="form-group">
+@*<input type="text" id="txtSelectedDate" name="SelectedDate" readonly="readonly"/>*@
 </div>
+
+<div class="col-4">
+<div class="form-group">
+    <label asp-for="GroupExpensesManage.DateRange" class="control-label"></label>
+    <div class='input-group date' id='datepicker'>
+        <input asp-for="GroupExpensesManage.DateRange" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <span asp-validation-for="GroupExpensesManage.DateRange" class="text-danger"></span>
+</div>
+</div>
+</div>
+
+    <div class="row" style="margin-top:5%">
+        <div class="col-2">
+            <label asp-for="GroupExpensesManage.GroupTypeId"></label>
+            <select asp-for="GroupExpensesManage.GroupTypeId" asp-items="@Model.GroupList as IEnumerable<SelectListItem>" class="form-select" id="GroupId">
+                <option>--SELECT--</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label asp-for="GroupExpensesManage.ExpensesTypeId"></label>
+            <select asp-for="GroupExpensesManage.ExpensesTypeId" asp-items="@Model.ExpensesType as IEnumerable<SelectListItem>" class="form-select">
+                <option>--SELECT--</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label asp-for="GroupExpensesManage.Description"></label>
+            <textarea class="form-control" style="height:5%"></textarea>
+        </div>
+        <div class="col-3">
+
+            <label asp-for="GroupExpensesManage.Amount"></label>
+            <div class="input-group">
+
+                <span class="input-group-text">$</span>
+                <input type="text" class="form-control" id="txtamount" aria-label="Amount (to the nearest dollar)">
+                <span class="input-group-text">.00</span>
+            </div>
+
+
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-success" id="AddProdBtn" style="margin-top:10%">Add</button>
+        </div>
+
+
+        @*    <div class="md-form col-3 create-only">
+            <input type="number" value="" id="prodId" placeholder="SelectProdId" />
+            </div>
+            <div class="md-form col-3 create-only">
+            <input type="text" value="" id="prodQty" placeholder="SelectProdQuantity" />
+            </div>
+            <div class="col-6">
+            <button type="button" id="AddProdBtn">AddProduct</button>
+            </div>*@
+        <div class="row" style="margin-top:5%">
+            <table id="tblGroup" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    </div>
+    @section scripts{
+@*
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">*@
+
+    <script src="~/js/GroupExpenses.js"></script>
+    }

@@ -14,10 +14,11 @@ namespace M_tracker.Models
     {
         [Key]
         public int Id { get; set; }
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         [ForeignKey("UserId")]
         [ValidateNever]
         public virtual IdentityUser IdentityUser { get; set; }
+       
         public int? GroupId { get; set; }
         [ForeignKey("GroupId")]
         [ValidateNever]
