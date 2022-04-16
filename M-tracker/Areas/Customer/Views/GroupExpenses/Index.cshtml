@@ -6,41 +6,73 @@
     <div class="row" style="margin-top:5%">
         <div class="col-6" style="float:none;margin:auto"><h2>Group Expenses Manage </h2></div>
     </div>
-    <div class="row">
-  <div class="form-group">
-@*<input type="text" id="txtSelectedDate" name="SelectedDate" readonly="readonly"/>*@
+    <div class="row" style="margin-top:2%">
+        <div class="col-3">
+            <div class="form-group">
+                <label for="date" class="col-sm-1 col-form-label">From</label>
+                <div class="input-group date" id="txtDateFrom">
+                    <input type="text" class="form-control" id="TxtFrom">
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-white d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-group">
+                <label for="date" class="col-sm-1 col-form-label">To</label>
+                <div class="input-group date" id="txtDateTo">
+                    <input type="text" class="form-control" id="TxtTo">
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-white d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-3" style="margin-top:2%">
+         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+   <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  
+</svg>
+<div class="alert alert-primary d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  <div>
+    Total Expense $: <span id="txtalert" style="color:black">0.00</span>
+  </div>
+</div>
+        </div>
+
+
+
+
 </div>
 
-<div class="col-4">
-<div class="form-group">
-    <label asp-for="GroupExpensesManage.DateRange" class="control-label"></label>
-    <div class='input-group date' id='datepicker'>
-        <input asp-for="GroupExpensesManage.DateRange" type="text" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </span>
     </div>
-    <span asp-validation-for="GroupExpensesManage.DateRange" class="text-danger"></span>
-</div>
-</div>
-</div>
 
-    <div class="row" style="margin-top:5%">
+    <div class="row" style="margin-top:2%">
         <div class="col-2">
             <label asp-for="GroupExpensesManage.GroupTypeId"></label>
-            <select asp-for="GroupExpensesManage.GroupTypeId" asp-items="@Model.GroupList as IEnumerable<SelectListItem>" class="form-select" id="GroupId">
+            <select asp-for="GroupExpensesManage.GroupTypeId" asp-items="@Model.GroupList as IEnumerable<SelectListItem>" class="form-select" id="drpGroup">
                 <option>--SELECT--</option>
             </select>
         </div>
         <div class="col-2">
             <label asp-for="GroupExpensesManage.ExpensesTypeId"></label>
-            <select asp-for="GroupExpensesManage.ExpensesTypeId" asp-items="@Model.ExpensesType as IEnumerable<SelectListItem>" class="form-select">
+            <select asp-for="GroupExpensesManage.ExpensesTypeId" asp-items="@Model.ExpensesType as IEnumerable<SelectListItem>" class="form-select" id="drpExpenses">
                 <option>--SELECT--</option>
             </select>
         </div>
         <div class="col-2">
             <label asp-for="GroupExpensesManage.Description"></label>
-            <textarea class="form-control" style="height:5%"></textarea>
+            <textarea class="form-control" style="height:5%" id="txtDescription"></textarea>
         </div>
         <div class="col-3">
 
@@ -56,42 +88,25 @@
         </div>
         <div class="col-2">
             <button type="button" class="btn btn-success" id="AddProdBtn" style="margin-top:10%">Add</button>
+             <button type="button" class="btn btn-danger" id="ClearBtn" style="margin-top:10%">Clear</button>
         </div>
 
-
-        @*    <div class="md-form col-3 create-only">
-            <input type="number" value="" id="prodId" placeholder="SelectProdId" />
-            </div>
-            <div class="md-form col-3 create-only">
-            <input type="text" value="" id="prodQty" placeholder="SelectProdQuantity" />
-            </div>
-            <div class="col-6">
-            <button type="button" id="AddProdBtn">AddProduct</button>
-            </div>*@
-        <div class="row" style="margin-top:5%">
+        <div class="row" style="margin-top:2%">
             <table id="tblGroup" class="table table-bordered table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Group</th>
                         <th>Type</th>
                         <th>Description</th>
-
+                        <th>Amout</th>
                     </tr>
                 </thead>
             </table>
         </div>
     </div>
 
-    </div>
-    @section scripts{
-@*
+</div>
+@section scripts{
+<script src="~/js/GroupExpenses.js"></script>
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">*@
-
-    <script src="~/js/GroupExpenses.js"></script>
-    }
+}
