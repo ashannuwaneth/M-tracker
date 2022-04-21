@@ -18,7 +18,9 @@ namespace M_tracker.DataAccess.Repository
             GroupType = new GroupTypeRepository(_db);
             GroupTypeUser = new GroupTypeUserRepository(_db);
             GroupUser = new GroupUserRepository(_db);
-            
+            groupExManage = new GroupExManageRepository(_db);
+
+
         }
 
         public IExpensesTypeRepository ExpensesType { get;private set; }
@@ -28,6 +30,8 @@ namespace M_tracker.DataAccess.Repository
         public IGroupTypeUserRepository GroupTypeUser { get; private set; }
 
         public IGroupUserRepository GroupUser { get; private set; }
+
+        public IGroupExManageRepository groupExManage { get;private set; }
 
         public void Save()
         {

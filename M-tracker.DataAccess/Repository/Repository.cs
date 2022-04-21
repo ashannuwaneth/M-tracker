@@ -25,6 +25,11 @@ namespace M_tracker.DataAccess.Repository
             dbSet.Add(item);
         }
 
+       public void AddRange(T []item)
+        {
+            dbSet.AddRangeAsync(item);
+        }
+
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;

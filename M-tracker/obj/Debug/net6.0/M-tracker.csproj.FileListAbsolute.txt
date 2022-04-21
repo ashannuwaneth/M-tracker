@@ -683,6 +683,7 @@ C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microso
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -698,6 +699,7 @@ C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microso
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Nancy.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\NuGet.Common.dll

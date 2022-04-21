@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace M_tracker.DataAccess.Migrations
 {
-    public partial class new_table : Migration
+    public partial class Add_tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -214,7 +214,8 @@ namespace M_tracker.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Amount = table.Column<double>(type: "float", nullable: false),
-                    DateRange = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateFrom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateTo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupTypeId = table.Column<int>(type: "int", nullable: false),
                     ExpensesTypeId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)

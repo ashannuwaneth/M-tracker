@@ -15,6 +15,8 @@ namespace M_tracker.DataAccess.Repository.IRepository
         IGroupTypeUserRepository GroupTypeUser { get; }
 
         IGroupUserRepository GroupUser { get; }
+
+        IGroupExManageRepository groupExManage { get; }
         void Save();
     }
 }

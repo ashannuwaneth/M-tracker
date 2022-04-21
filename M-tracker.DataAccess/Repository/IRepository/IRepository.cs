@@ -14,5 +14,7 @@ namespace M_tracker.DataAccess.Repository.IRepository
         void Add(T item);
         void Remove(T item);
         void RemoveRange(IEnumerable<T> item);
+
+        void AddRange(T []item);
     }
 }

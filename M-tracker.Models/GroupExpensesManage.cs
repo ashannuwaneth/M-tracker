@@ -18,7 +18,9 @@ namespace M_tracker.Models
         [Required]
         public double Amount { get; set; }
         [Required]
-        public DateTime DateRange { get; set; }
+        public string DateFrom { get; set; }
+        [Required]
+        public string DateTo { get; set; }
         [Display(Name ="Group")]
         public int? GroupTypeId { get; set; }
         [ForeignKey("GroupTypeId")]
