@@ -11,23 +11,6 @@ using System.Security.Claims;
 namespace M_tracker.Areas.Customer.Controllers
 {
 
-    public class Expenses
-    {
-        public float amount { get; set; }
-        public string description { get; set; }
-        public int expensesTypeId { get; set; }
-        public string group { get; set; }
-        public int groupTypeId { get; set; }
-        //public string id { get; set; }
-        public string type { get; set; }
-        public string DateFrom { get; set; }
-        public string DateTo { get; set; }
-
-
-
-
-
-    }
 
     [Area("Customer")]
     public class GroupExpensesController : Controller
@@ -66,7 +49,7 @@ namespace M_tracker.Areas.Customer.Controllers
 
 
 
-        [HttpPost]//[FromBody] object MainArr
+        [HttpPost]
         public async Task<ActionResult>  Save([FromBody] List<GroupExpensesManage> Expenses)
         {
 
@@ -80,8 +63,8 @@ namespace M_tracker.Areas.Customer.Controllers
             }
 
             _unitOfWork.Save();
-
-                return RedirectToAction("Index");
+            TempData["success"] = "Expenses  has been Added successfully";
+            return Json(new {success=true});
         }
     }
 }

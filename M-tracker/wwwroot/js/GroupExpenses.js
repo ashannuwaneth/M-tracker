@@ -107,8 +107,8 @@ function AddToGrid() {
         var DateTo = $('#TxtTo').val();
         /* var month = $('#txtDateFrom').datepicker('getDate').getMonth() + 1;*/ // get only month
         
-
-       // TempArr["id"] = CountId.toString();
+         
+        TempArr["cellId"] = CountId.toString();
         TempArr["group"] = $('#drpGroup :selected').text();
         TempArr["groupTypeId"] = parseInt($('#drpGroup :selected').val());
         TempArr["type"] = $('#drpExpenses :selected').text();
@@ -117,6 +117,7 @@ function AddToGrid() {
         TempArr["amount"] = parseFloat($('#txtamount').val());
         TempArr["DateFrom"] = DateFrom;
         TempArr["DateTo"] = DateTo;
+        TempArr["isUpdate"] = false;
 
         MainArr.push(TempArr);
         dataTable.clear().draw();
@@ -160,7 +161,7 @@ function Delete(data) {
 
     for (var i = 0; i < MainArr.length;i++){
 
-        if (data == MainArr[i]["id"]) {
+        if (data == MainArr[i]["cellId"]) {
 
             MainArr.splice((data - 1), 1);
             break;
@@ -182,18 +183,15 @@ function SaveDetails() {
         dataType: 'json',
         data: JSON.stringify(MainArr),
         contentType: 'application/json; charset=utf-8',
-        success: function () {
+        success: function (data) {
+            if (data.success) {
+                
+                location.reload();
+            }
 
-            //console.log("Savesuccessful");
-            //console.log(data);
-            alert("Record Save Succesfully");
-
-            //$(".loader").hide();
         },
         error: function (error) {
-            alert("Error is occured");
-            //console.log("My errror values:", error);
-
+          
         }
     });
 
