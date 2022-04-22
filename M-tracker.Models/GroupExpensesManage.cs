@@ -35,7 +35,8 @@ namespace M_tracker.Models
         [ForeignKey("UserId")]
         [ValidateNever]
         public virtual IdentityUser IdentityUser { get; set; }
-
+        [NotMapped]
+        public bool IsUpdate { get; set; }
 
 
     }

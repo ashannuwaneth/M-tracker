@@ -16,5 +16,25 @@ namespace M_tracker.DataAccess.Repository
         {
             _db = db; 
         }
+
+        public Array GetAllExepense(string UserId, string DateFrom, String DateTo)
+        {
+            var ExpensesList = (from ex in _db.GroupExpensesManages
+                                join g in _db.GroupTypes on ex.GroupTypeId equals g.Id
+                                join et in _db.ExpensesTypes on ex.ExpensesTypeId equals et.Id
+                                where ex.UserId == UserId && ex.DateFrom == DateFrom && ex.DateTo == DateTo
+                                select new
+                                {
+                                    CellId = ex.Id.ToString(),
+                                    Group = g.Type.ToString(),
+                                    Type = et.Type.ToString(),
+                                    Description = ex.Description,
+                                    Amount = ex.Amount.ToString(),
+                                    IsUpdate = true
+
+
+                                }).ToArray();
+            return ExpensesList; 
+        }
     }
 }

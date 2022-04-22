@@ -3,6 +3,7 @@ using M_tracker.Models;
 using M_tracker.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Nancy.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Security.Claims;
@@ -58,13 +59,51 @@ namespace M_tracker.Areas.Customer.Controllers
 
             foreach (GroupExpensesManage e in Expenses)
             {
-                e.UserId = Convert.ToString(claim.Value);
-                _unitOfWork.groupExManage.Add(e);
+                if (e.IsUpdate == false)
+                {
+                    e.UserId = Convert.ToString(claim.Value);
+                    _unitOfWork.groupExManage.Add(e);
+                }
+          
             }
 
             _unitOfWork.Save();
             TempData["success"] = "Expenses  has been Added successfully";
             return Json(new {success=true});
+        }
+        [HttpPost]
+        public JsonResult GetAllExpenses([FromBody] GroupExpensesManage DateTo)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            var GetAllExpenses = _unitOfWork.groupExManage.GetAllExepense(claim.Value,DateTo.DateFrom,DateTo.DateTo);
+            if (GetAllExpenses != null)
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                return Json(new { data = GetAllExpenses });
+            }
+            else
+            {
+                return Json( new {data = false});
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteFromDb(int id)
+        {
+            var DeleteRow = _unitOfWork.groupExManage.GetFirstOrDefault(x => x.Id == id);
+            if (DeleteRow != null)
+            {
+                _unitOfWork.groupExManage.Remove(DeleteRow);
+                _unitOfWork.Save();
+                return Json(new {success=true,message="Expenses has been Deleted"});
+            }
+            else
+            {
+                return Json(new {success=true,message="Error Occur while Deleting"});
+            }
+         
         }
     }
 }
