@@ -3,12 +3,7 @@ var dataTable;
 
 $(document).ready(function () {
 
-    $('#txtDateFrom').datepicker({
-        format: "mm-yyyy",
-        startView: "months",
-        minViewMode: "months"
-    });
-    $('#txtDateTo').datepicker({
+    $('#TxtDate').datepicker({
         format: "mm-yyyy",
         startView: "months",
         minViewMode: "months"
@@ -17,11 +12,13 @@ $(document).ready(function () {
     InitDataTable();
     InitDisableItems();
 
-    $("#txtDateTo").change(EnableFields);
+    $("#TxtDate").change(EnableFields);
     $('#drpGroup').change(Dropdiable);
     $('#AddProdBtn').click(AddToGrid);
     $('#ClearBtn').click(ClearForm);
     $('#btnSave').click(SaveDetails);
+
+
 
 });
 
@@ -83,8 +80,8 @@ function EnableFields() {
     document.getElementById("ClearBtn").disabled = false;
     document.getElementById("btnSave").disabled = false;
 
-    $("#TxtFrom").attr("disabled", true);
-    $("#TxtTo").attr("disabled", true);
+    $("#TxtExpensesDate").attr("disabled", true);
+
 
 }
 
@@ -106,8 +103,7 @@ function AddToGrid() {
 
         var TempArr = {};
         var CountId = MainArr.length == 0 ? 1 : (MainArr.length + 1);
-        var DateFrom = $('#TxtFrom').val();
-        var DateTo = $('#TxtTo').val();
+        var ExpensesDate = $('#TxtExpensesDate').val();
         /* var month = $('#txtDateFrom').datepicker('getDate').getMonth() + 1;*/ // get only month
         
          
@@ -118,8 +114,7 @@ function AddToGrid() {
         TempArr["expensesTypeId"] = parseInt($('#drpExpenses :selected').val());
         TempArr["description"] = $('#txtDescription').val() == "" ? $('#drpExpenses :selected').text() : $('#txtDescription').val();
         TempArr["amount"] = parseFloat($('#txtamount').val());
-        TempArr["DateFrom"] = DateFrom;
-        TempArr["DateTo"] = DateTo;
+        TempArr["ExpensesDate"] = ExpensesDate;
         TempArr["IsUpdate"] = false;
 
         MainArr.push(TempArr);
@@ -168,17 +163,20 @@ function Delete(data) {
 
             if (MainArr[i]["isUpdate"] == true) {
 
-                DeleteDataFromDb(data);
+                DeleteDataFromDb(data, i);
             }
-            MainArr.splice((i - 1), 1);
-            break;
+            else {
+                MainArr.splice((i - 1), 1);
+                break;
+            }
+
         }
     }
     LoadGrid();
     CalculateAmount();
 }
 
-function DeleteDataFromDb(id) {
+function DeleteDataFromDb(id,i) {
 
 
     Swal.fire({
@@ -196,7 +194,7 @@ function DeleteDataFromDb(id) {
                 type: 'DELETE',
                 success: function (data) {
                     if (data.success) {
-                
+                        MainArr.splice((i - 1), 1);
                         toastr.success(data.message);
                         LoadGrid();
                         CalculateAmount();
@@ -232,14 +230,18 @@ function SaveDetails() {
         }
     });
 
+    $('a[href="#profile-tab"]').on('click', function (event) {
+        event.preventDefault();
+        var tab = $(this).data('profile');
+        $(tab).tab('show');
+    })
 
 }
 
 function LoadAllExpenses() {
 
-    var DateFrom = $('#TxtFrom').val();
-    var DateTo = $('#TxtTo').val();
-    var param = { "DateFrom": DateFrom, "DateTo": DateTo };
+    var ExpensesDate = $('#TxtExpensesDate').val();
+    var param = { "ExpensesDate": ExpensesDate };
 
     $.ajax({
         url: "/Customer/GroupExpenses/GetAllExpenses",

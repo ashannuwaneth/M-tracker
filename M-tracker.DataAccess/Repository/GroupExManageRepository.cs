@@ -17,12 +17,12 @@ namespace M_tracker.DataAccess.Repository
             _db = db; 
         }
 
-        public Array GetAllExepense(string UserId, string DateFrom, String DateTo)
+        public Array GetAllExepense(string UserId, string ExpensesDate)
         {
             var ExpensesList = (from ex in _db.GroupExpensesManages
                                 join g in _db.GroupTypes on ex.GroupTypeId equals g.Id
                                 join et in _db.ExpensesTypes on ex.ExpensesTypeId equals et.Id
-                                where ex.UserId == UserId && ex.DateFrom == DateFrom && ex.DateTo == DateTo
+                                where ex.UserId == UserId && ex.ExpensesDate == ExpensesDate
                                 select new
                                 {
                                     CellId = ex.Id.ToString(),

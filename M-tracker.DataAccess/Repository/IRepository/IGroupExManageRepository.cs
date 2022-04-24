@@ -10,6 +10,6 @@ namespace M_tracker.DataAccess.Repository.IRepository
     public interface IGroupExManageRepository : IRepository<GroupExpensesManage>
     {
 
-       Array GetAllExepense(string UserId,string DateFrom,String DateTo);
+       Array GetAllExepense(string UserId,string ExpensesDate);
     }
 }

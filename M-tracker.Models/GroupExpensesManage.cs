@@ -18,9 +18,7 @@ namespace M_tracker.Models
         [Required]
         public double Amount { get; set; }
         [Required]
-        public string DateFrom { get; set; }
-        [Required]
-        public string DateTo { get; set; }
+        public string ExpensesDate { get; set; }
         [Display(Name ="Group")]
         public int? GroupTypeId { get; set; }
         [ForeignKey("GroupTypeId")]
@@ -35,6 +33,8 @@ namespace M_tracker.Models
         [ForeignKey("UserId")]
         [ValidateNever]
         public virtual IdentityUser IdentityUser { get; set; }
+        [ValidateNever]
+        public bool IsProceed { get; set; }
         [NotMapped]
         public bool IsUpdate { get; set; }
 

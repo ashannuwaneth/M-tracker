@@ -72,12 +72,12 @@ namespace M_tracker.Areas.Customer.Controllers
             return Json(new {success=true});
         }
         [HttpPost]
-        public JsonResult GetAllExpenses([FromBody] GroupExpensesManage DateTo)
+        public JsonResult GetAllExpenses([FromBody] GroupExpensesManage ExpensesDate)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            var GetAllExpenses = _unitOfWork.groupExManage.GetAllExepense(claim.Value,DateTo.DateFrom,DateTo.DateTo);
+            var GetAllExpenses = _unitOfWork.groupExManage.GetAllExepense(claim.Value, ExpensesDate.ExpensesDate);
             if (GetAllExpenses != null)
             {
                 JavaScriptSerializer js = new JavaScriptSerializer();
