@@ -64,6 +64,28 @@ namespace M_tracker.DataAccess.Repository
                 _db.GroupTotals.Add(gt);
                 _db.SaveChanges();
 
+
+                var GroupCount = _db.GroupTypeUsers.Where(a => a.Id == Convert.ToInt32(txtGroupId)).Count();
+                var GroupTotalCount = _db.GroupTotals.Where(b => b.GroupTypeId == Convert.ToInt32(txtGroupId) && b.ProcessDate == txtDate).Count();
+
+                if (GroupCount == GroupTotalCount)
+                {
+                    var GetList = (from gtt in _db.GroupTotals
+                                   where gtt.GroupTypeId == Convert.ToInt32(txtGroupId) && gtt.ProcessDate == txtDate
+                                   select gtt
+                                  ).ToArray();
+
+                    for (int i=0;i< GetList.Length;i++)
+                    {
+                        GetList[i].IsProceed = true;
+                    }
+
+                    _db.GroupTotals.UpdateRange(GetList);
+                    _db.SaveChanges();
+                }
+
+
+               
                 return true;
             }
             catch (Exception)
@@ -79,6 +101,7 @@ namespace M_tracker.DataAccess.Repository
                 var List = (from gt in _db.GroupTotals
                             join g in _db.GroupTypes on gt.GroupTypeId equals g.Id
                             join u in _db.Users on gt.UserId equals u.Id
+                            orderby gt.IsProceed 
                             select new
                             {
                                 SubmitDate = gt.SubmitDate,
@@ -86,7 +109,8 @@ namespace M_tracker.DataAccess.Repository
                                 DueAmount = gt.DueAmount,
                                 TotalAmount = gt.TotalAmount,
                                 ProcessDate = gt.ProcessDate,
-                                UserName = u.UserName
+                                UserName = u.UserName,
+                                IsProceed =gt.IsProceed,
                             }).ToArray();
 
                 return List;

@@ -53,7 +53,7 @@ namespace M_tracker.Areas.Customer.Controllers
 
             bool result = _unitOfWork.GroupTotal.ProcessExpenses(txtGroupId, txtDate, claim.Value);
 
-            return Json(new { success = true, message = "Expesnses Process has been successfull" });
+            return Json(new { success = true, message = "Process has been successfull" });
         }
 
         [HttpGet]

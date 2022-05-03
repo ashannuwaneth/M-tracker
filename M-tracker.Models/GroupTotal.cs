@@ -21,6 +21,7 @@ namespace M_tracker.Models
         public double DueAmount { get; set; }
         public double TotalAmount { get; set; }
         public string ProcessDate { get; set; }
+        public bool IsProceed { get; set; }
         [ValidateNever]
         [Display(Name ="Group Type")]
         public int? GroupTypeId { get; set; }

@@ -76,14 +76,28 @@ function LoadGroupTotal() {
 
     dataTable = $('#tblGroupTotal').DataTable({
         responsive: true,
+        "aaSorting": [[6, "desc"]],
         "columns": [
             { "data": "submitDate", "width": "15%" },
             { "data": "amount", "width": "15%" },
             { "data": "dueAmount", "width": "15%" },
             { "data": "totalAmount", "width": "15%" },
             { "data": "processDate", "width": "15%" },
-            { "data": "userName", "width": "15%" }
-        ],
+            { "data": "userName", "width": "15%" },
+            { "data": null, "width": "5%" },
+            ],
+            columnDefs: [{
+                // puts a button in the last column
+                targets: [-1], render: function (a, b, data, d) {
+                    if (data.isProceed == true) {
+                        return "<i class='bi bi-check-circle-fill'></i>";
+                    }
+                    else {
+                        return "<i class='bi bi-exclamation-circle-fill'></i>";
+                    }
+                    return "";
+                }
+            }],
     });
 
 }
