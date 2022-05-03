@@ -214,11 +214,11 @@ namespace M_tracker.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Amount = table.Column<double>(type: "float", nullable: false),
-                    DateFrom = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateTo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExpensesDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupTypeId = table.Column<int>(type: "int", nullable: false),
                     ExpensesTypeId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsProceed = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -236,6 +236,36 @@ namespace M_tracker.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_GroupExpensesManages_GroupTypes_GroupTypeId",
+                        column: x => x.GroupTypeId,
+                        principalTable: "GroupTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GroupTotals",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubmitDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Amount = table.Column<double>(type: "float", nullable: false),
+                    DueAmount = table.Column<double>(type: "float", nullable: false),
+                    TotalAmount = table.Column<double>(type: "float", nullable: false),
+                    ProcessDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GroupTypeId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GroupTotals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GroupTotals_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_GroupTotals_GroupTypes_GroupTypeId",
                         column: x => x.GroupTypeId,
                         principalTable: "GroupTypes",
                         principalColumn: "Id",
@@ -328,6 +358,16 @@ namespace M_tracker.DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GroupTotals_GroupTypeId",
+                table: "GroupTotals",
+                column: "GroupTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GroupTotals_UserId",
+                table: "GroupTotals",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GroupTypes_UserId",
                 table: "GroupTypes",
                 column: "UserId");
@@ -367,6 +407,9 @@ namespace M_tracker.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "GroupExpensesManages");
+
+            migrationBuilder.DropTable(
+                name: "GroupTotals");
 
             migrationBuilder.DropTable(
                 name: "GroupTypeUsers");

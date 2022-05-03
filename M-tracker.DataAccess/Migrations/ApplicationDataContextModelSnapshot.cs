@@ -90,6 +90,46 @@ namespace M_tracker.DataAccess.Migrations
                     b.ToTable("GroupExpensesManages");
                 });
 
+            modelBuilder.Entity("M_tracker.Models.GroupTotal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DueAmount")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("GroupTypeId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProcessDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SubmitDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalAmount")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupTypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupTotals");
+                });
+
             modelBuilder.Entity("M_tracker.Models.GroupType", b =>
                 {
                     b.Property<int>("Id")
@@ -391,6 +431,23 @@ namespace M_tracker.DataAccess.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("ExpensesType");
+
+                    b.Navigation("GroupType");
+
+                    b.Navigation("IdentityUser");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.GroupTotal", b =>
+                {
+                    b.HasOne("M_tracker.Models.GroupType", "GroupType")
+                        .WithMany()
+                        .HasForeignKey("GroupTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("GroupType");
 

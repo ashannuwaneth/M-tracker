@@ -1,5 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using M_tracker.Models.ViewModels
+@model GroupTotalVM
+
+
+<div class="container" style="margin-top:3%">
+  <div class="row">
+         <div class="col-6" style="float:none;margin:auto"><h2>Manage Group Total</h2></div>
+  </div>
+  <div class="row" style="margin-top:3%">
+      <div class="col-2"></div>
+      <div class="col-3">
+          <label asp-for="GroupTotal.GroupTypeId"></label>
+          <select asp-for="GroupTotal.GroupTypeId" asp-items="@Model.GroupTypeList as IEnumerable<SelectListItem>" class="form-select" id="drpGroupType">
+              <option selected>---SELECT---</option>
+          </select>
+      </div>
+      <div class="col-3">
+          <label>Expenses Months</label>
+          <select asp-items="@Model.ExpensesMonths as IEnumerable<SelectListItem>" class="form-select" id="txtMonths">
+              <option selected>---SELECT---</option>
+          </select>
+      </div>
+      <div class="col-3" style="margin-top:2%">
+          <button type="button" class="btn btn-success" id="btnProcess"> Process</button>
+    </div>
+  </div>
+  <div class="row" style="margin-top:2%">
+          <div class="row" style="margin-top:2%">
+        <table id="tblGroupTotal" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+              <tr>
+                  <th>Process Date</th>
+                  <th>Amount</th>
+                  <th>Due Amount</th>
+                  <th>Total Amount</th>
+                  <th>Month</th>
+                  <th>User</th>
+                  <th>Status</th>
+              </tr>
+             </thead>
+        </table>
+    </div>
+</div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/js/GroupTotal.js"></script>
 }

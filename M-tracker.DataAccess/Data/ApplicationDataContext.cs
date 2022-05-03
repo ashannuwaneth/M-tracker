@@ -21,6 +21,7 @@ namespace M_tracker.DataAccess.Data
         public DbSet<GroupUser> GroupUsers { get; set; }
         public DbSet<GroupTypeUser> GroupTypeUsers { get; set; }
         public DbSet<GroupExpensesManage> GroupExpensesManages { get; set; }
+        public DbSet<GroupTotal> GroupTotals { get; set; }
         public IEnumerable<object> IdentityUser { get; internal set; }
     }
 }

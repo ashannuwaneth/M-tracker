@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace M_tracker.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20220421030117_Add_tables")]
+    [Migration("20220502141908_Add_tables")]
     partial class Add_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,15 +59,11 @@ namespace M_tracker.DataAccess.Migrations
                     b.Property<double>("Amount")
                         .HasColumnType("float");
 
-                    b.Property<string>("DateFrom")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DateTo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpensesDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -78,6 +74,9 @@ namespace M_tracker.DataAccess.Migrations
                     b.Property<int?>("GroupTypeId")
                         .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsProceed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -91,6 +90,46 @@ namespace M_tracker.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("GroupExpensesManages");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.GroupTotal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DueAmount")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("GroupTypeId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProcessDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SubmitDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("TotalAmount")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupTypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupTotals");
                 });
 
             modelBuilder.Entity("M_tracker.Models.GroupType", b =>
@@ -394,6 +433,23 @@ namespace M_tracker.DataAccess.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("ExpensesType");
+
+                    b.Navigation("GroupType");
+
+                    b.Navigation("IdentityUser");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.GroupTotal", b =>
+                {
+                    b.HasOne("M_tracker.Models.GroupType", "GroupType")
+                        .WithMany()
+                        .HasForeignKey("GroupTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
 
                     b.Navigation("GroupType");
 
