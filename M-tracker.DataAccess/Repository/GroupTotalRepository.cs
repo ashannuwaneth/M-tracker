@@ -65,11 +65,21 @@ namespace M_tracker.DataAccess.Repository
                 _db.SaveChanges();
 
 
-                var GroupCount = _db.GroupTypeUsers.Where(a => a.Id == Convert.ToInt32(txtGroupId)).Count();
+                var GroupCount = _db.GroupTypeUsers.Where(a => a.GroupTypeId == Convert.ToInt32(txtGroupId)).Count();
                 var GroupTotalCount = _db.GroupTotals.Where(b => b.GroupTypeId == Convert.ToInt32(txtGroupId) && b.ProcessDate == txtDate).Count();
 
                 if (GroupCount == GroupTotalCount)
                 {
+
+
+                    var TotalAmount = (from _gt in _db.GroupTotals
+                                       join g in _db.GroupTypes on _gt.GroupTypeId equals g.Id
+                                       where gt.ProcessDate == txtDate
+                                       select _gt.Amount).Sum();
+
+                    double EachCount = Convert.ToDouble(TotalAmount) / GroupTotalCount;
+
+
                     var GetList = (from gtt in _db.GroupTotals
                                    where gtt.GroupTypeId == Convert.ToInt32(txtGroupId) && gtt.ProcessDate == txtDate
                                    select gtt
@@ -78,6 +88,8 @@ namespace M_tracker.DataAccess.Repository
                     for (int i=0;i< GetList.Length;i++)
                     {
                         GetList[i].IsProceed = true;
+                        GetList[i].TotalAmount = TotalAmount;
+                        GetList[i].DueAmount = (GetList[i].Amount - EachCount);
                     }
 
                     _db.GroupTotals.UpdateRange(GetList);
