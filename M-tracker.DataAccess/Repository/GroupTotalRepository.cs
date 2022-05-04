@@ -121,5 +121,21 @@ namespace M_tracker.DataAccess.Repository
                 return null;
             }
         }
+
+        public IEnumerable<SelectListItem> GropList(string user)
+        {
+
+            var GList = (from gtu in _db.GroupTypeUsers
+                         join gt in _db.GroupTypes on gtu.GroupTypeId equals gt.Id
+                         where gtu.UserId == user
+                         select new SelectListItem
+                         {
+                             Text = gt.Type,
+                             Value = gt.Id.ToString(),
+                         }).ToArray();
+
+            return GList;
+
+        }
     }
 }

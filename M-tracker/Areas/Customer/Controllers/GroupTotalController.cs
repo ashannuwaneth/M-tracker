@@ -23,13 +23,11 @@ namespace M_tracker.Areas.Customer.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
+            var GroupList = _unitOfWork.GroupTotal.GropList(claim.Value);
+
             GroupTotalVM GroupTotalVM = new()
             {
-                GroupTypeList = _unitOfWork.GroupType.GetAll(a => a.UserId == Convert.ToString(claim.Value)).Select(u => new SelectListItem
-                {
-                    Text = u.Type,
-                    Value = u.Id.ToString(),
-                })
+                GroupTypeList = GroupList
             };
 
             return View(GroupTotalVM);

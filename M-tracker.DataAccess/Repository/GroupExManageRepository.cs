@@ -1,6 +1,7 @@
 ﻿using M_tracker.DataAccess.Data;
 using M_tracker.DataAccess.Repository.IRepository;
 using M_tracker.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,19 @@ namespace M_tracker.DataAccess.Repository
 
                                 }).ToArray();
             return ExpensesList; 
+        }
+
+        public IEnumerable<SelectListItem> GroupList(string user)
+        {
+            var gList = (from gtu in _db.GroupTypeUsers
+                         join gt in _db.GroupTypes on gtu.GroupTypeId equals gt.Id
+                         where gtu.UserId==user
+                         select new SelectListItem
+                         {
+                             Text = gt.Type,
+                             Value = gt.Id.ToString()
+                         }).ToArray();
+            return gList;
         }
     }
 }

@@ -30,6 +30,8 @@ namespace M_tracker.Areas.Customer.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
+            var GropList = _unitOfWork.groupExManage.GroupList(claim.Value);
+
             GroupExpensesVM groupExpensesVM = new()
             {
                 GroupExpensesManage = new GroupExpensesManage(),
@@ -38,11 +40,7 @@ namespace M_tracker.Areas.Customer.Controllers
                     Text = u.Type,
                     Value = u.Id.ToString()
                 }),
-                GroupList = _unitOfWork.GroupType.GetAll(u => u.UserId == Convert.ToString(claim.Value)).Select(u => new SelectListItem { 
-                Text = u.Type,
-                Value = u.Id.ToString()
-                
-                })
+                GroupList = GropList
             };
 
             return View(groupExpensesVM);

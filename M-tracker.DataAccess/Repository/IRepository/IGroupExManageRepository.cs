@@ -1,4 +1,5 @@
 ﻿using M_tracker.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace M_tracker.DataAccess.Repository.IRepository
     {
 
        Array GetAllExepense(string UserId,string ExpensesDate);
+       IEnumerable<SelectListItem> GroupList(string user);
     }
 }
