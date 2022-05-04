@@ -25,8 +25,8 @@ function loadGropTypes() {
                         <div class="w-75 btn-group" role="group">
                         <a onclick="EditGroup('${data}')"
                         class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i>Edit</a>
-                           <a onClick=Delete('/Customer/GroupType/Delete/${data}')
-                        class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
+                           <button onClick=Delete('/Customer/GroupType/Delete/${data}')
+                        class="btn btn-danger mx-2" type="button" disabled> <i class="bi bi-trash-fill"></i> Delete</button>
 					</div>
                         `
                 },

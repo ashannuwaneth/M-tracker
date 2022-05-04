@@ -110,7 +110,10 @@ namespace M_tracker.Areas.Customer.Controllers
         [HttpGet]
         public IActionResult UserList()
         {
-            var List = _unitOfWork.GroupUser.ListAllUsers();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            var List = _unitOfWork.GroupUser.ListAllUsers(claim.Value);
             return Json(new {data= List});
         }
 

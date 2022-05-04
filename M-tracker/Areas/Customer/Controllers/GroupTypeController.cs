@@ -91,7 +91,10 @@ namespace M_tracker.Areas.Customer.Controllers
         [HttpGet]
         public IActionResult GetAllGroup()
         {
-            var AllGroup = _unitOfWork.GroupType.GetAll();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            var AllGroup = _unitOfWork.GroupType.GetAll(u => u.UserId == claim.Value);
             return Json(new {data = AllGroup });
         }
 

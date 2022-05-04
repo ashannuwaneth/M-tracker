@@ -12,7 +12,7 @@ namespace M_tracker.DataAccess.Repository.IRepository
     {
         Array GetAll(string txt);
         string GetUserName(string Id);
-        Array ListAllUsers();
+        Array ListAllUsers(string user);
         void Update(GroupUser obj);
     }
 }

@@ -41,12 +41,13 @@ namespace M_tracker.DataAccess.Repository
         }
 
 
-        public Array ListAllUsers()
+        public Array ListAllUsers(string user)
         {
             var UserLst = (from gu in _db.GroupTypeUsers
                            join u in _db.Users on gu.UserId equals u.Id
                            join gl in _db.GroupUsers on gu.GroupId equals gl.Id
                            join gt in _db.GroupTypes on gu.GroupTypeId equals gt.Id
+                           where gt.UserId == user
                            select new
                            {
                                Id = gu.Id,
