@@ -347,9 +347,10 @@ C:\Users\ashan\OneDrive\Desktop\MVC\tracker\M-tracker\obj\Debug\net6.0\refint\M-
 C:\Users\ashan\OneDrive\Desktop\MVC\tracker\M-tracker\obj\Debug\net6.0\M-tracker.pdb
 C:\Users\ashan\OneDrive\Desktop\MVC\tracker\M-tracker\obj\Debug\net6.0\M-tracker.genruntimeconfig.cache
 C:\Users\ashan\OneDrive\Desktop\MVC\tracker\M-tracker\obj\Debug\net6.0\ref\M-tracker.dll
-C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\appsettings.json
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\package-lock.json
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\package.json
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\M-tracker.staticwebassets.runtime.json
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\M-tracker.exe
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\M-tracker.deps.json
@@ -854,6 +855,7 @@ C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\ru\Micr
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.VisualBasic.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.Workspaces.resources.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\bin\Debug\net6.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll

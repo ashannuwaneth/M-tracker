@@ -19,6 +19,8 @@ namespace M_tracker.DataAccess.Repository.IRepository
         IGroupExManageRepository groupExManage { get; }
 
         IGroupTotalRepository GroupTotal { get; }
+
+        IDashBoardRepository DashBoard { get; }
         void Save();
     }
 }

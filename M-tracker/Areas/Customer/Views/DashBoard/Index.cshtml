@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row" style="margin-top:3%">
+        <div class="col-6" style="width:400px;height:400px">
+      <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://github.com/chartjs/Chart.js/blob/2c268f09437f88a8be1d0d0ce87e974d17354961/docs/scripts/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/DashBoard.js"></script>
+}

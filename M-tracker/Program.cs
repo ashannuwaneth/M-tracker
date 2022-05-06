@@ -15,7 +15,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDataContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+//builder.Services.AddControllersWithViews().AddRazorPagesOptions(options => {   //login page start
+//    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+//});
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -30,8 +30,8 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                Home
+                            <a class="nav-link active" asp-area="Customer" asp-controller="DashBoard" asp-action="Index">
+                                DashBoard
                                 <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
@@ -46,7 +46,6 @@
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupExpenses" asp-action="Index">Group Expenses</a>
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupTotal" asp-action="Index">Group Total</a>
                             </div>
-
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
