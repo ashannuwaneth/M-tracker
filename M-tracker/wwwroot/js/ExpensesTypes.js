@@ -42,11 +42,11 @@ function loadExpensesTable() {
 
 
 function EditType(data) {
-    var url = "/Admin/ExpensesType/CreateType/" + data ;
+    var url = "/Admin/ExpensesType/CreateType/" + data;
     $.get(url, null, function (data) {
         $('#form-modal .modal-body').html(data);
         $('#form-modal').modal('show');
-        // to make popup draggable
+        //to make popup draggable
         $('.modal-dialog').draggable({
             handle: ".modal-header"
         });

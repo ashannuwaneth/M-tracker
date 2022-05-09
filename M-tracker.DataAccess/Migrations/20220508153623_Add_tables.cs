@@ -207,6 +207,46 @@ namespace M_tracker.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "IncomeMethods",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IncomeMethods = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IncomeMethods", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_IncomeMethods_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "IncomeTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IncomeTypes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IncomeTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_IncomeTypes_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GroupExpensesManages",
                 columns: table => new
                 {
@@ -253,6 +293,7 @@ namespace M_tracker.DataAccess.Migrations
                     DueAmount = table.Column<double>(type: "float", nullable: false),
                     TotalAmount = table.Column<double>(type: "float", nullable: false),
                     ProcessDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsProceed = table.Column<bool>(type: "bit", nullable: false),
                     GroupTypeId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
@@ -301,6 +342,40 @@ namespace M_tracker.DataAccess.Migrations
                         column: x => x.GroupId,
                         principalTable: "GroupUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Incomes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Amount = table.Column<double>(type: "float", nullable: false),
+                    IncomeDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IncomeTypeId = table.Column<int>(type: "int", nullable: false),
+                    IncomeMethodId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Incomes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Incomes_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Incomes_IncomeMethods_IncomeMethodId",
+                        column: x => x.IncomeMethodId,
+                        principalTable: "IncomeMethods",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Incomes_IncomeTypes_IncomeTypeId",
+                        column: x => x.IncomeTypeId,
+                        principalTable: "IncomeTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -386,6 +461,31 @@ namespace M_tracker.DataAccess.Migrations
                 name: "IX_GroupTypeUsers_UserId",
                 table: "GroupTypeUsers",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IncomeMethods_UserId",
+                table: "IncomeMethods",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Incomes_IncomeMethodId",
+                table: "Incomes",
+                column: "IncomeMethodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Incomes_IncomeTypeId",
+                table: "Incomes",
+                column: "IncomeTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Incomes_UserId",
+                table: "Incomes",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IncomeTypes_UserId",
+                table: "IncomeTypes",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -415,6 +515,9 @@ namespace M_tracker.DataAccess.Migrations
                 name: "GroupTypeUsers");
 
             migrationBuilder.DropTable(
+                name: "Incomes");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -425,6 +528,12 @@ namespace M_tracker.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "GroupUsers");
+
+            migrationBuilder.DropTable(
+                name: "IncomeMethods");
+
+            migrationBuilder.DropTable(
+                name: "IncomeTypes");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

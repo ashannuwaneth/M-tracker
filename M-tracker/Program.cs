@@ -16,6 +16,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>()
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
+
 //builder.Services.AddControllersWithViews().AddRazorPagesOptions(options => {   //login page start
 //    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
 //});

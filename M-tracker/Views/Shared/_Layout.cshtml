@@ -39,12 +39,18 @@
                             <a class="nav-link" asp-area="Admin" asp-controller="ExpensesType" asp-action="Index">Expenses</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Expenses Managment</a>
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Group Tracker</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupType" asp-action="Index">Group Types</a>
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupUser" asp-action="Index">Group Users</a>
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupExpenses" asp-action="Index">Group Expenses</a>
                                 <a class="dropdown-item" asp-area="Customer" asp-controller="GroupTotal" asp-action="Index">Group Total</a>
+                            </div>
+                        </li>
+                                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Self Tracker</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="Customer" asp-controller="Income" asp-action="Index">Income</a>
                             </div>
                         </li>
                     </ul>

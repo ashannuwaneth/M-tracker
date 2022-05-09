@@ -21,6 +21,7 @@ namespace M_tracker.DataAccess.Repository
             groupExManage = new GroupExManageRepository(_db);
             GroupTotal = new GroupTotalRepository(_db);
             DashBoard = new DashBoardRepository(_db);
+            Income = new IncomeRepository(_db);
         }
 
         public IExpensesTypeRepository ExpensesType { get;private set; }
@@ -36,6 +37,9 @@ namespace M_tracker.DataAccess.Repository
         public IGroupTotalRepository GroupTotal { get; private set; }
 
         public IDashBoardRepository DashBoard { get; private set; }
+
+        public IIncomeRepository Income { get; private set; }   
+
         public void Save()
         {
             _db.SaveChanges();

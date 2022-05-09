@@ -1,0 +1,91 @@
+﻿@using M_tracker.Models.ViewModels
+@model IncomeVM
+
+
+
+<div class="container" style="margin-top:3%">
+    <div class="row">
+        <div class="col-6" style="float:none;margin:auto"><h2>Self Income</h2></div>
+    </div>
+    <form method="post" asp-action="InsertUpdateIncome" asp-controller="Income">
+        <input asp-for="Income.Id" hidden />
+        <div class="row" style="margin-top:4%">
+
+            <div class="col-2">
+                <label asp-for="Income.IncomeDate" class="col-form-label"></label>
+                <div class="input-group date" id="TxtDate">
+                    <input asp-for="Income.IncomeDate" type="text" class="form-control" id="TxtExpensesDate">
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-white d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                    <span asp-validation-for="Income.IncomeDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-3" style="margin-top:1%">
+                <label asp-for="Income.Amount"></label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input asp-for="Income.Amount" type="number" class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                    <span class="input-group-text">.00</span>
+                    <span asp-validation-for="Income.Amount" class="text-danger"></span>
+                </div>
+                <span id="txterror" class="text-danger"></span>
+            </div>
+            <div class="col-2" style="margin-top:1%">
+                <label asp-for="Income.IncomeTypeId"></label>
+                <select asp-for="Income.IncomeTypeId" asp-items="@Model.IncomeList as IEnumerable<SelectListItem>" class="form-select">
+                    <option selected disabled hidden>--SELECT--</option>
+                </select>
+                <span asp-validation-for="Income.IncomeTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2" style="margin-top:1%">
+                <label asp-for="Income.IncomeMethodId"></label>
+                <select asp-for="Income.IncomeMethodId" asp-items="@Model.IncomeMethodList as IEnumerable<SelectListItem>" class="form-select">
+                    <option selected disabled hidden>--SELECT--</option>
+                </select>
+                <span asp-validation-for="Income.IncomeMethodId" class="text-danger"></span>
+            </div>
+
+            <div class="col-3" style="margin-top:3%">
+
+                @if (Model.Income.Id != 0)
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Insert</button>
+                }
+            </div>
+        </div>
+    </form>
+
+    <div class="row" style="margin-top:5%">
+        <table id="tblIncome" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Income Type</th>
+                    <th>Method</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+@section scripts{
+
+ @{
+    <partial name="_ValidationScriptsPartial" />
+ }
+
+
+<script src="~/js/Income.js"></script>
+}

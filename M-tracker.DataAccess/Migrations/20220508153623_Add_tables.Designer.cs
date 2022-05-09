@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace M_tracker.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20220502141908_Add_tables")]
+    [Migration("20220508153623_Add_tables")]
     partial class Add_tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,6 +109,9 @@ namespace M_tracker.DataAccess.Migrations
                     b.Property<int?>("GroupTypeId")
                         .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsProceed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ProcessDate")
                         .IsRequired()
@@ -210,6 +213,88 @@ namespace M_tracker.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GroupUsers");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.Income", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("IncomeDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("IncomeMethodId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IncomeTypeId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IncomeMethodId");
+
+                    b.HasIndex("IncomeTypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Incomes");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.IncomeMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("IncomeMethods")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("IncomeMethods");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.IncomeType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("IncomeTypes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("IncomeTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -486,6 +571,53 @@ namespace M_tracker.DataAccess.Migrations
                     b.Navigation("GroupType");
 
                     b.Navigation("GroupUser");
+
+                    b.Navigation("IdentityUser");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.Income", b =>
+                {
+                    b.HasOne("M_tracker.Models.IncomeMethod", "IncomeMethod")
+                        .WithMany()
+                        .HasForeignKey("IncomeMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("M_tracker.Models.IncomeType", "IncomeType")
+                        .WithMany()
+                        .HasForeignKey("IncomeTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("IdentityUser");
+
+                    b.Navigation("IncomeMethod");
+
+                    b.Navigation("IncomeType");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.IncomeMethod", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdentityUser");
+                });
+
+            modelBuilder.Entity("M_tracker.Models.IncomeType", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("IdentityUser");
                 });
