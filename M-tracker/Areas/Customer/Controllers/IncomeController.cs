@@ -39,9 +39,7 @@ namespace M_tracker.Areas.Customer.Controllers
             {
                 List.Income = _unitOfWork.Income.GetFirstOrDefault(a => a.Id == id);
                 return View(List);
-            }
-
-           
+            }           
         }
         [HttpGet]
         public IActionResult GetAllIncome()
@@ -84,7 +82,6 @@ namespace M_tracker.Areas.Customer.Controllers
             }
             else
             {
-                _unitOfWork.Income.Remove(DeleteIncome);
                 _unitOfWork.Income.Remove(DeleteIncome);
                 _unitOfWork.Save();
 

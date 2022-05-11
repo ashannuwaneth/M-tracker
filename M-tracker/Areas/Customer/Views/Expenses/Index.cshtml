@@ -1,0 +1,81 @@
+﻿@using M_tracker.Models.ViewModels
+@model ExpensesVM
+
+<div class="container"  style="margin-top:3%">
+    <div class="row">
+        <div class="col-6" style="float:none;margin:auto"><h2>Self Expenses</h2></div>
+    </div>
+    <form method="post" asp-action="InsertUpdateExpenses" asp-controller="Expenses">
+        <input asp-for="Expenses.Id" hidden />
+        <div class="row" style="margin-top:4%">
+            <div class="col-2">
+                <label asp-for="Expenses.ExpensesDate" class="col-form-label"></label>
+                <div class="input-group date" id="TxtExDate">
+                    <input asp-for="Expenses.ExpensesDate" type="text" class="form-control" id="TxtExpensesDate">
+                    <span class="input-group-append">
+                        <span class="input-group-text bg-white d-block">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                    <span asp-validation-for="Expenses.ExpensesDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-3" style="margin-top:1%">
+                <label asp-for="Expenses.Amount"></label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input asp-for="Expenses.Amount" type="number"  class="form-control" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                    <span class="input-group-text">.00</span>
+                    <span asp-validation-for="Expenses.Amount" class="text-danger"></span>
+                </div>
+                <span id="txterror" class="text-danger"></span>
+            </div>
+            <div class="col-2" style="margin-top:1%">
+                <label asp-for="Expenses.ExpensesTypeId"></label>
+                <select asp-for="Expenses.ExpensesTypeId" asp-items="@Model.ExpensesList as IEnumerable<SelectListItem>" class="form-select">
+                    <option selected disabled hidden>--SELECT--</option>
+                </select>
+                <span asp-validation-for="Expenses.ExpensesTypeId" class="text-danger"></span>
+            </div>
+            <div class="col-2" style="margin-top:1%">
+                <label asp-for="Expenses.IncomeMethodId"></label>
+                <select asp-for="Expenses.IncomeMethodId" asp-items="@Model.ExpensesMethod as IEnumerable<SelectListItem>" class="form-select">
+                    <option selected disabled hidden>--SELECT--</option>
+                </select>
+                <span asp-validation-for="Expenses.IncomeMethodId" class="text-danger"></span>
+            </div>
+            <div class="col-3" style="margin-top:3%">
+
+                @if (Model.Expenses.Id != 0)
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary" style="width:150px">Add New</button>
+                }
+            </div>
+        </div>
+    </form>
+        <div class="row" style="margin-top:5%">
+        <table id="tblExpenses" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Expenses Type</th>
+                    <th>Method</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@section scripts{
+
+ @{
+    <partial name="_ValidationScriptsPartial" />
+ }
+
+ <script src="~/js/Expenses.js"></script>
+}

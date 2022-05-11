@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ReK/uGNV8nTvvFi5rmHaTV/hx+RKp0Evq5unifVNCeU=",
+  "Hash": "XJU3yhJU1uABXMntNnvPelz73zp5+to6ZTuVO9uEvys=",
   "Source": "M-tracker",
   "BasePath": "_content/M-tracker",
   "Mode": "Default",
@@ -1513,6 +1513,23 @@
       "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\e4a3ee88-c337-4b0a-9adc-8b1cd4750d1a.jpg"
     },
     {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\e72c1520-e2e7-4c99-9d0d-52617f6494a9.jpg",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "images/ExpensesTypes/e72c1520-e2e7-4c99-9d0d-52617f6494a9.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\e72c1520-e2e7-4c99-9d0d-52617f6494a9.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\DashBoard.js",
       "SourceId": "M-tracker",
       "SourceType": "Discovered",
@@ -1528,6 +1545,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\DashBoard.js"
+    },
+    {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\Expenses.js",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "js/Expenses.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Expenses.js"
     },
     {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\ExpensesTypes.js",

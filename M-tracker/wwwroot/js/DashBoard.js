@@ -44,7 +44,9 @@ function initchart() {
             {
                 label: 'Group Total',
                 data: Amount,
-                backgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 1,
             },
         ]
     };

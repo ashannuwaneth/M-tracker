@@ -26,6 +26,7 @@ namespace M_tracker.DataAccess.Data
         public DbSet<IncomeType> IncomeTypes { get; set; }
         public DbSet<IncomeMethod> IncomeMethods { get; set; }
         public DbSet<Income> Incomes { get; set; }
+        public DbSet<Expenses> Expenses { get; set; }
         public IEnumerable<object> IdentityUser { get; internal set; }
 
 

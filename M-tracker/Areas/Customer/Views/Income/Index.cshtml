@@ -1,8 +1,6 @@
 ﻿@using M_tracker.Models.ViewModels
 @model IncomeVM
 
-
-
 <div class="container" style="margin-top:3%">
     <div class="row">
         <div class="col-6" style="float:none;margin:auto"><h2>Self Income</h2></div>
@@ -10,7 +8,6 @@
     <form method="post" asp-action="InsertUpdateIncome" asp-controller="Income">
         <input asp-for="Income.Id" hidden />
         <div class="row" style="margin-top:4%">
-
             <div class="col-2">
                 <label asp-for="Income.IncomeDate" class="col-form-label"></label>
                 <div class="input-group date" id="TxtDate">
@@ -40,7 +37,6 @@
                 </select>
                 <span asp-validation-for="Income.IncomeTypeId" class="text-danger"></span>
             </div>
-
             <div class="col-2" style="margin-top:1%">
                 <label asp-for="Income.IncomeMethodId"></label>
                 <select asp-for="Income.IncomeMethodId" asp-items="@Model.IncomeMethodList as IEnumerable<SelectListItem>" class="form-select">
@@ -48,7 +44,6 @@
                 </select>
                 <span asp-validation-for="Income.IncomeMethodId" class="text-danger"></span>
             </div>
-
             <div class="col-3" style="margin-top:3%">
 
                 @if (Model.Income.Id != 0)
@@ -62,7 +57,6 @@
             </div>
         </div>
     </form>
-
     <div class="row" style="margin-top:5%">
         <table id="tblIncome" class="table table-bordered table-striped" style="width:100%">
             <thead>
@@ -85,7 +79,6 @@
  @{
     <partial name="_ValidationScriptsPartial" />
  }
-
 
 <script src="~/js/Income.js"></script>
 }

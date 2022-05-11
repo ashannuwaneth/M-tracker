@@ -23,6 +23,7 @@ namespace M_tracker.DataAccess.Repository.IRepository
         IDashBoardRepository DashBoard { get; }
 
         IIncomeRepository Income { get; }
+        IExpensesRepository Expenses { get; }
         void Save();
     }
 }
