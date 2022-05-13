@@ -1,10 +1,12 @@
 ﻿using M_tracker.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace M_tracker.Areas.Customer.Controllers
 {
     [Area("Customer")]
+    [Authorize]
     public class DashBoardController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -3,6 +3,8 @@ using M_tracker.DataAccess.Repository;
 using M_tracker.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using M_tracker.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,15 +13,19 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDataContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-builder.Services.AddDefaultIdentity<IdentityUser>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
     .AddEntityFrameworkStores<ApplicationDataContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 
-//builder.Services.AddControllersWithViews().AddRazorPagesOptions(options => {   //login page start
-//    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
-//});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
 
 var app = builder.Build();
 

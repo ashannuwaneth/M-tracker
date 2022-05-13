@@ -1,5 +1,6 @@
 ﻿using M_tracker.DataAccess.Repository.IRepository;
 using M_tracker.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
@@ -7,6 +8,7 @@ using System.Security.Claims;
 namespace M_tracker.Areas.Customer.Controllers
 {
     [Area("Customer")]
+    [Authorize]
     public class GroupTotalController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -1,10 +1,13 @@
 ﻿using M_tracker.DataAccess.Repository.IRepository;
 using M_tracker.Models;
+using M_tracker.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace M_tracker.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ExpensesTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
