@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
     $('#TxtDate').datepicker({
-        format: "dd/mm/yyyy"
+
     });
     LoadIncomeTbl();
 

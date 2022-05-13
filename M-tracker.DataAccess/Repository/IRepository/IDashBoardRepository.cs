@@ -9,5 +9,10 @@ namespace M_tracker.DataAccess.Repository.IRepository
     public interface IDashBoardRepository 
     {
         Array GetGroupAmounts(string user);
+        Array GetAllExpensesCategories(string user);
+
+        Array GetAllExIncomeList(string user);
+
+        Array GetAllIncomeList(string user);
     }
 }

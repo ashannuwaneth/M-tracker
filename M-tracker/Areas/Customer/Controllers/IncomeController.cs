@@ -61,6 +61,10 @@ namespace M_tracker.Areas.Customer.Controllers
             }
             else
             {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                In.Income.UserId = claim.Value;
+             
                 _unitOfWork.Income.Add(In.Income);
                 Message = "Inserted";
             }

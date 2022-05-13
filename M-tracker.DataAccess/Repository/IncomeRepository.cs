@@ -55,7 +55,7 @@ namespace M_tracker.DataAccess.Repository
                         select new
                         {
                             i.Id,
-                            i.IncomeDate,
+                            IncomeDate =i.IncomeDate.ToString("yyyy-MM-dd"),
                             i.Amount,
                             ty.IncomeTypes,
                             m.IncomeMethods

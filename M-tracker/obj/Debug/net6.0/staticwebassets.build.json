@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XJU3yhJU1uABXMntNnvPelz73zp5+to6ZTuVO9uEvys=",
+  "Hash": "lK0TiAae7DknUKk1l+kisOWxfzR98xOlmeCA2+CFp8o=",
   "Source": "M-tracker",
   "BasePath": "_content/M-tracker",
   "Mode": "Default",
@@ -1258,6 +1258,23 @@
       "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\482c77eb-54d9-4314-b58a-b8e0a5053d30.jpg"
     },
     {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\48610ca7-0ee5-4cf2-a117-9c34879d8e74.jpg",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "images/ExpensesTypes/48610ca7-0ee5-4cf2-a117-9c34879d8e74.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\48610ca7-0ee5-4cf2-a117-9c34879d8e74.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\54b14179-212f-4d9a-a92c-411e0a9c2efc.png",
       "SourceId": "M-tracker",
       "SourceType": "Discovered",
@@ -1358,6 +1375,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\6ffc00a1-1750-40f9-9df0-b73ca7805122.png"
+    },
+    {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\71b30ce0-07f6-4080-b721-4607f888e926.jpg",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "images/ExpensesTypes/71b30ce0-07f6-4080-b721-4607f888e926.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\71b30ce0-07f6-4080-b721-4607f888e926.jpg"
     },
     {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\81707257-17bf-4726-a468-7141e71ddf76.jpg",
@@ -1530,6 +1564,23 @@
       "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\e72c1520-e2e7-4c99-9d0d-52617f6494a9.jpg"
     },
     {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\images\\ExpensesTypes\\f93b0b77-a506-4207-853f-a910a5459a20.jpg",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "images/ExpensesTypes/f93b0b77-a506-4207-853f-a910a5459a20.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ExpensesTypes\\f93b0b77-a506-4207-853f-a910a5459a20.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\DashBoard.js",
       "SourceId": "M-tracker",
       "SourceType": "Discovered",
@@ -1681,6 +1732,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\js\\Utils.js",
+      "SourceId": "M-tracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\",
+      "BasePath": "_content/M-tracker",
+      "RelativePath": "js/Utils.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Utils.js"
     },
     {
       "Identity": "C:\\Users\\ashan\\OneDrive\\Desktop\\MVC\\M-tracker\\M-tracker\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
