@@ -1,0 +1,12 @@
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\bin\Release\net6.0\M-tracker.Models.deps.json
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\bin\Release\net6.0\M-tracker.Models.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\bin\Release\net6.0\M-tracker.Models.pdb
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.csproj.AssemblyReference.cache
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.AssemblyInfoInputs.cache
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.AssemblyInfo.cs
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.csproj.CoreCompileInputs.cache
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\refint\M-tracker.Models.dll
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\M-tracker.Models.pdb
+C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker.Models\obj\Release\net6.0\ref\M-tracker.Models.dll

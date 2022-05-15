@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAslf5DTWLjkWxNNxB6zhurQAAAAACAAAAAAAQZgAAAAEAACAAAACPjfR2rTZ7j5IP/6zMr5ndAipsemjejEdKrenGwx3KHQAAAAAOgAAAAAIAACAAAABgATh8jSTJEshW8xbOGrtCJIGhWDn938E0b4+laCUDl4AAAAA39w6DVhVSk67Mm7HLnoXffj3dhcZ4cp+Wd0/DBFdB5rhafqEQBjkq9FT8YWJDjQfA6XkIf4gjfMv1Db02mFY9Qy8Ldbw29X7Etq5vXTe5fxVmeDuFFYmRGu0ysifkoNSdgqRf1z88lguey1ZzwBFnEUf3mX5HFzpRLOOTD3parEAAAABiWoXNjBhCkk2jSjzVUCeIUHUp7pem/yJLWfINCj71V/BH4nq7u6E1d89PXORf8zfuxN9/1HzXCJhiTsyrNfxG</EncryptedPassword>
+    <History>True|2022-05-15T13:05:06.2719808Z;True|2022-05-15T22:52:22.5930937+10:00;True|2022-05-15T21:42:17.8116817+10:00;True|2022-05-15T21:30:41.4524462+10:00;True|2022-05-15T20:46:32.5641305+10:00;True|2022-05-15T20:16:52.1290012+10:00;True|2022-05-14T23:46:35.1866258+10:00;True|2022-05-14T23:41:16.2624478+10:00;True|2022-05-13T22:19:52.1717963+10:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="M_tracker.DataAccess.Data.ApplicationDataContext">
+      <Value>Data Source=tcp:mrackerdb.database.windows.net,1433%3bInitial Catalog=MtrackerDB%3bUser Id=ashan%40mrackerdb%3bPassword=OmiNadu%4092</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

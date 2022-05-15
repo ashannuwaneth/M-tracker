@@ -8,7 +8,7 @@
     <form method="post" asp-action="InsertUpdateIncome" asp-controller="Income">
         <input asp-for="Income.Id" hidden />
         <div class="row" style="margin-top:4%">
-            <div class="col-2">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
                 <label asp-for="Income.IncomeDate" class="col-form-label"></label>
                 <div class="input-group date" id="TxtDate">
                     <input asp-for="Income.IncomeDate" type="text" class="form-control" id="TxtExpensesDate">
@@ -20,7 +20,7 @@
                     <span asp-validation-for="Income.IncomeDate" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-3" style="margin-top:1%">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style="margin-top:1%">
                 <label asp-for="Income.Amount"></label>
                 <div class="input-group">
                     <span class="input-group-text">$</span>
@@ -30,21 +30,21 @@
                 </div>
                 <span id="txterror" class="text-danger"></span>
             </div>
-            <div class="col-2" style="margin-top:1%">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" style="margin-top:1%">
                 <label asp-for="Income.IncomeTypeId"></label>
                 <select asp-for="Income.IncomeTypeId" asp-items="@Model.IncomeList as IEnumerable<SelectListItem>" class="form-select">
                     <option selected disabled hidden>--SELECT--</option>
                 </select>
                 <span asp-validation-for="Income.IncomeTypeId" class="text-danger"></span>
             </div>
-            <div class="col-2" style="margin-top:1%">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" style="margin-top:1%">
                 <label asp-for="Income.IncomeMethodId"></label>
                 <select asp-for="Income.IncomeMethodId" asp-items="@Model.IncomeMethodList as IEnumerable<SelectListItem>" class="form-select">
                     <option selected disabled hidden>--SELECT--</option>
                 </select>
                 <span asp-validation-for="Income.IncomeMethodId" class="text-danger"></span>
             </div>
-            <div class="col-3" style="margin-top:3%">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3" style="margin-top:3%">
 
                 @if (Model.Income.Id != 0)
                 {

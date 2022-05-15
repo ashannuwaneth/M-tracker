@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\obj\Release\net6.0\win-x86\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\ashan\OneDrive\Desktop\MVC\M-tracker\M-tracker\obj\Release\net6.0\win-x86\PubTmp\EFSQLScripts\M_tracker.DataAccess.Data.ApplicationDataContext.sql" />
+</sitemanifest>
